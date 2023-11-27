@@ -6,7 +6,7 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 
-@RunWith(Para)
+@RunWith(Parameterized.class)
 public class CustomMathTest {
 
     private int x;
@@ -24,18 +24,15 @@ public class CustomMathTest {
         return Arrays.asList(new Object[][]{
                 {1, 1, 2},
                 {-1, 1, 0},
-                {10, 15, 25}
+                {10, 15, 25},
         });
     }
 
     @Test
     public void test() {
-        int a = 10;
-        int b = 30;
+        int expResult = sumResult;
+        int result = Main.sum(x, y);
 
-        int result = Main.plus(a, b);
-
-        Assert.assertEquals(40, result);
-
+        Assert.assertEquals(expResult, result);
     }
 }
